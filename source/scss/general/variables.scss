@@ -1,10 +1,15 @@
+// COLORS
+
 $c-light: #ffffff;
 $c-dark: #5f458c;
 $c-purple: #a67ee5;
 
+// FONTS
+
 $font: "Proxima Nova", "Arial", sans-serif;
 $font-alt: "Radical",  "Arial", sans-serif;
 
+// WIDTH
 $stop-scaling: 2000px;
 
 $wide-screen: "min-aspect-ratio: 1680/650";
@@ -19,3 +24,8 @@ $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
 
 $index: 1.38871;
+
+// ANIMATION
+
+$defaultDuration: 0.3s;
+$defaultTimingFunction: ease;
