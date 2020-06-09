@@ -29,12 +29,25 @@
   }
 }
 
+@keyframes show__form__field {
+  0% {
+    width: 11.2rem;
+    margin-left: calc(100% - 32.2rem);
+  }
+
+  100% {
+    width: calc(100% - 21rem);
+    margin-left: 0;
+  }
+}
+
 .form__field {
   flex: none;
   margin-right: 3rem;
+  margin-left: calc(100% - 32.2rem);
   padding: 0 5.6rem;
   height: 6rem;
-  width: calc(100% - 21rem);
+  width: 11.2rem;
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -43,6 +56,7 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  animation: show__form__field ease 0.5s forwards;
 
   &:focus {
     border: 1px solid $c-purple;
