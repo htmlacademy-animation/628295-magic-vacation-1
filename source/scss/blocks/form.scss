@@ -30,53 +30,26 @@
 }
 
 @keyframes show__form__field {
-  0% {
-    width: 11.2rem;
-    margin-left: calc(100% - 32.2rem);
-  }
-
   100% {
-    width: calc(100% - 21rem);
-    margin-left: 0;
+    transform: translateX(0);
   }
 }
 
-.form__field {
-  flex: none;
+.form__field__wrapper {
   margin-right: 3rem;
-  margin-left: calc(100% - 32.2rem);
-  padding: 0 5.6rem;
-  height: 6rem;
-  width: 11.2rem;
-  text-transform: uppercase;
-  font: inherit;
-  font-size: 2.4rem;
-  line-height: 1.2;
-  color: $c-dark;
-  border: 0;
+  width: calc(100% - 21rem);
   border-radius: 3rem;
-  outline: none;
-  animation: show__form__field ease 0.5s forwards;
-
-  &:focus {
-    border: 1px solid $c-purple;
-  }
+  overflow: hidden;
 
   @media (min-width: $stop-scaling) {
     margin-right: 30px;
-    padding: 0 56px;
-    height: 60px;
     width: calc(100% - 210px);
-    font-size: 24px;
     border-radius: 30px;
   }
 
   @media (orientation: portrait) {
     margin-right: 1rem;
-    padding: 0 2.5rem;
     width: calc(100% - 5rem);
-    height: 4rem;
-    font-size: 1.6rem;
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
@@ -85,9 +58,48 @@
 
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-right: 1rem;
-    padding: 0 2.5rem;
     width: calc(100% - 5rem);
+  }
+}
+
+.form__field {
+  flex: none;
+  padding: 0 5.6rem;
+  height: 6rem;
+  text-transform: uppercase;
+  width: 100%;
+  font: inherit;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  color: $c-dark;
+  border: 0;
+  border-radius: 3rem;
+  outline: none;
+  transform: translateX(calc(100% - 10rem));
+  animation: show__form__field ease-in 0.8s forwards;
+
+  &:focus {
+    border: 1px solid $c-purple;
+  }
+
+  @media (min-width: $stop-scaling) {
+    padding: 0 56px;
+    height: 60px;
+    font-size: 24px;
+    border-radius: 30px;
+  }
+
+  @media (orientation: portrait) {
+    padding: 0 2.5rem;
     height: 4rem;
+    font-size: 1.6rem;
+    transform: translateX(calc(100% - 4rem));
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    padding: 0 2.5rem;
+    height: 4rem;
+    transform: translateX(calc(100% - 4rem));
     font-size: 1.6rem;
   }
 }

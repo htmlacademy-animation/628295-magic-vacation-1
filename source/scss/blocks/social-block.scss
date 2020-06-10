@@ -1,10 +1,27 @@
+@keyframes move__social-block__link {
+  0% {
+    transform: translateY(1rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .social-block {
   position: relative;
+  border-radius: 50%;
 
   &:hover {
     .social-block__list {
-      opacity: 1;
-      pointer-events: auto;
+      @for $i from 1 through 3 {
+        li:nth-child(#{$i}) {
+          .social-block__link {
+            transition-delay: calc(#{$i} * 0.1s);
+            animation-delay: calc(#{$i} * 0.1s);
+          }
+        }
+      }
     }
   }
 }
@@ -46,6 +63,14 @@
     height: 2.2rem;
   }
 
+  &:hover {
+    & + .social-block__list {
+      .social-block__link {
+        animation: move__social-block__link linear $defaultDuration forwards;
+      }
+    }
+  }
+
   &:hover,
   .social-block--active & {
     color: $c-purple;
@@ -65,8 +90,12 @@
     }
 
     & + .social-block__list {
-      opacity: 1;
       pointer-events: auto;
+
+      .social-block__link {
+        opacity: 1;
+        animation: move__social-block__link linear $defaultDuration forwards;
+      }
     }
   }
 
@@ -89,7 +118,6 @@
   top: 100%;
   right: 0;
   margin-top: 1.5rem;
-  opacity: 0;
   pointer-events: none;
 
   @media (min-width: $stop-scaling) {
@@ -102,7 +130,6 @@
     justify-content: center;
     align-items: center;
     margin-top: 0;
-    opacity: 1;
     pointer-events: auto;
   }
 
@@ -112,7 +139,6 @@
     justify-content: center;
     align-items: center;
     margin-top: 0;
-    opacity: 1;
     pointer-events: auto;
   }
 
@@ -129,19 +155,14 @@
     }
   }
 
-  &:hover {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  &:focus-within {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
+  &:hover,
+  &:focus-within,
   .social-block--active & {
-    opacity: 1;
     pointer-events: auto;
+
+    .social-block__link {
+      opacity: 1;
+    }
   }
 
   li {
@@ -172,6 +193,7 @@
   border-radius: 50%;
   transition: all $defaultDuration $defaultTimingFunction;
   background-color: transparent;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -179,11 +201,13 @@
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
+    opacity: 1;
     color: $c-light;
     background-color: $c-dark;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
+    opacity: 1;
     color: $c-light;
     background-color: $c-dark;
   }
