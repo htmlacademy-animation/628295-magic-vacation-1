@@ -19,6 +19,29 @@
   }
 }
 
+.page-ready .page-header__logo {
+  transform: none;
+  opacity: 1;
+}
+
+.page-ready .page-header__nav {
+  transform: none;
+  opacity: 1;
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    transform: translateX(-100%);
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    transform: translateX(-100%);
+  }
+}
+
+.page-ready .page-header__toggler {
+  transform: none;
+  opacity: 1;
+}
+
 .page-header__wrapper {
   @include container;
   display: flex;
@@ -35,6 +58,9 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transform: translateX(-45px);
+  opacity: 0;
+  transition: all $customTimingFunction 0.8s;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -81,6 +107,9 @@
   background-color: $c-light;
   border-radius: 50%;
   z-index: 1;
+  opacity: 0;
+  transform: translate(50%, -50%);
+  transition: all $customTimingFunction 0.8s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -130,6 +159,8 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition: all $customTimingFunction 0.8s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -143,6 +174,8 @@
     padding: 4rem 3.5rem;
     color: $c-dark;
     background-color: $c-light;
+    opacity: 1;
+    transition: none;
 
     .page-header--menu-opened & {
       transform: translateX(0);
@@ -163,6 +196,8 @@
     color: $c-dark;
     background-color: $c-light;
     overflow-y: auto;
+    opacity: 1;
+    transition: none;
 
     .page-header--menu-opened & {
       transform: translateX(0);
