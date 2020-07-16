@@ -29,12 +29,6 @@
   }
 }
 
-@keyframes show__form__field {
-  100% {
-    transform: translateX(0);
-  }
-}
-
 .form__field__wrapper {
   margin-right: 3rem;
   width: calc(100% - 21rem);
@@ -75,8 +69,6 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
-  transform: translateX(calc(100% - 10rem));
-  animation: show__form__field ease-in 0.8s forwards;
 
   &:focus {
     border: 1px solid $c-purple;
@@ -93,13 +85,11 @@
     padding: 0 2.5rem;
     height: 4rem;
     font-size: 1.6rem;
-    transform: translateX(calc(100% - 4rem));
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 0 2.5rem;
     height: 4rem;
-    transform: translateX(calc(100% - 4rem));
     font-size: 1.6rem;
   }
 }

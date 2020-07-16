@@ -1,0 +1,52 @@
+.social-block {
+  &:hover {
+    .social-block__list {
+      @for $i from 1 through 3 {
+        li:nth-child(#{$i}) {
+          .social-block__link {
+            transition-delay: calc(#{$i} * 0.1s);
+            animation-delay: calc(#{$i} * 0.1s);
+          }
+        }
+      }
+    }
+  }
+}
+
+.social-block__toggler {
+  transition: all $defaultDuration $defaultTimingFunction;
+
+  &::before {
+    transition: all $defaultDuration $defaultTimingFunction;
+  }
+
+  &:hover {
+    & + .social-block__list {
+      .social-block__link {
+        animation: move__social-block__link linear $defaultDuration forwards;
+      }
+    }
+  }
+
+  &:hover,
+  .social-block--active & {
+    &::before {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  &:focus {
+    & + .social-block__list {
+      .social-block__link {
+        opacity: 1;
+        animation: move__social-block__link linear $defaultDuration forwards;
+      }
+    }
+  }
+}
+
+.social-block__link {
+  transition: all $defaultDuration $defaultTimingFunction;
+  background-color: transparent;
+  opacity: 0;
+}

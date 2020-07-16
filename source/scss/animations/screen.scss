@@ -1,0 +1,12 @@
+.screen__footer {
+  transform: translateY(100%);
+  transition: all 0.8s $customTimingFunction 0.2s;
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    transform: translate(-100%, 100%);
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    transform: translate(-100%, 100%);
+  }
+}

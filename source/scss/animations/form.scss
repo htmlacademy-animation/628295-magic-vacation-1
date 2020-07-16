@@ -1,0 +1,18 @@
+@keyframes show__form__field {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.form__field {
+  transform: translateX(calc(100% - 10rem));
+  animation: show__form__field ease-in 0.8s forwards;
+
+  @media (orientation: portrait) {
+    transform: translateX(calc(100% - 4rem));
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    transform: translateX(calc(100% - 4rem));
+  }
+}

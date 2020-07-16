@@ -50,14 +50,11 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
-  transform: translateY(100%);
-  transition: all $customTimingFunction 0.8s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 0 3.6rem 0 0;
-    transform: translate(-100%, 100%);
 
     &.screen__footer--full {
       width: 100%;
@@ -69,7 +66,6 @@
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 0 3.6rem 0 0;
-    transform: translate(-100%, 100%);
 
     &.screen__footer--full {
       width: 100%;

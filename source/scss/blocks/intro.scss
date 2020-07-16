@@ -86,18 +86,6 @@
   }
 }
 
-@keyframes show__intro__message {
-  0% {
-    transform: translateY(1.5rem);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 .intro__message {
   flex: none;
   width: 50.9rem;
@@ -105,8 +93,6 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
-  opacity: 0;
-  animation: show__intro__message linear 1s 0.5s forwards;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
