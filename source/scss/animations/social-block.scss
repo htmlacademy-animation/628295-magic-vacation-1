@@ -1,3 +1,13 @@
+@keyframes move__social-block__link {
+  0% {
+    transform: translateY(1rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .social-block {
   &:hover {
     .social-block__list {
@@ -20,14 +30,6 @@
     transition: all $defaultDuration $defaultTimingFunction;
   }
 
-  &:hover {
-    & + .social-block__list {
-      .social-block__link {
-        animation: move__social-block__link linear $defaultDuration forwards;
-      }
-    }
-  }
-
   &:hover,
   .social-block--active & {
     &::before {
@@ -35,6 +37,7 @@
     }
   }
 
+  &:hover,
   &:focus {
     & + .social-block__list {
       .social-block__link {

@@ -51,3 +51,9 @@
     transform: translateX(-100%);
   }
 }
+
+.page-header__menu a {
+  &::after {
+    transition: width $defaultDuration $defaultTimingFunction;
+  }
+}
