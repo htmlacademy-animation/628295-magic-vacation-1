@@ -1,0 +1,20 @@
+
+.slider__item-text {
+  transform: translateX(2rem);
+  opacity: 0;
+  transition: all ease-in 0.5s 0.25s;
+}
+
+.swiper-slide-next,
+.swiper-slide-active {
+  .slider__item-text {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.swiper-slide-next {
+  .slider__item-text {
+    transition-delay: 0.45s;
+  }
+}

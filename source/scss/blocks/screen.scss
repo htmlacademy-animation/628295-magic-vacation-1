@@ -38,6 +38,10 @@
   z-index: 1;
 }
 
+.page-ready .screen__footer {
+  transform: none;
+}
+
 .screen__footer {
   position: absolute;
   bottom: 0;
