@@ -1,5 +1,8 @@
 import throttle from 'lodash/throttle';
 
+const GAME_INDEX = 1;
+const PRIZE_INDEX = 2;
+
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 2000;
@@ -8,6 +11,7 @@ export default class FullPageScroll {
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
 
     this.activeScreen = 0;
+    this.prevActiveScreen = null;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
   }
@@ -21,8 +25,10 @@ export default class FullPageScroll {
 
   onScroll(evt) {
     const currentPosition = this.activeScreen;
+
     this.reCalculateActiveScreenPosition(evt.deltaY);
     if (currentPosition !== this.activeScreen) {
+      this.prevActiveScreen = currentPosition;
       this.changePageDisplay();
     }
   }
@@ -34,9 +40,22 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
-    this.changeVisibilityDisplay();
+    if (this.prevActiveScreen === GAME_INDEX && this.activeScreen === PRIZE_INDEX) {
+      this.changeVisibilityDisplaySpecialPrize();
+    } else {
+      this.changeVisibilityDisplay();
+    }
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+  }
+
+  changeVisibilityDisplaySpecialPrize() {
+    document.body.classList.add(`show-background`);
+
+    setTimeout(() => {
+      document.body.classList.remove(`show-background`);
+      this.changeVisibilityDisplay();
+    }, 1000);
   }
 
   changeVisibilityDisplay() {
@@ -44,6 +63,7 @@ export default class FullPageScroll {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`active`);
     });
+
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     this.screenElements[this.activeScreen].classList.add(`active`);
   }
