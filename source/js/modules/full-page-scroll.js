@@ -35,16 +35,13 @@ export default class FullPageScroll {
 
   onUrlHashChanged() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
+    this.prevActiveScreen = this.activeScreen;
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
     this.changePageDisplay();
   }
 
   changePageDisplay() {
-    if (this.prevActiveScreen === GAME_INDEX && this.activeScreen === PRIZE_INDEX) {
-      this.changeVisibilityDisplaySpecialPrize();
-    } else {
-      this.changeVisibilityDisplay();
-    }
+    this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
   }
@@ -54,11 +51,19 @@ export default class FullPageScroll {
 
     setTimeout(() => {
       document.body.classList.remove(`show-background`);
-      this.changeVisibilityDisplay();
-    }, 1000);
+      this.changeVisibilityDisplayDefault();
+    }, 750);
   }
 
   changeVisibilityDisplay() {
+    if (this.prevActiveScreen === GAME_INDEX && this.activeScreen === PRIZE_INDEX) {
+      this.changeVisibilityDisplaySpecialPrize();
+    } else {
+      this.changeVisibilityDisplayDefault();
+    }
+  }
+
+  changeVisibilityDisplayDefault() {
     this.screenElements.forEach((screen) => {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`active`);

@@ -23,32 +23,24 @@
 
 
 .page-header__nav {
-  opacity: 0;
-  transition: all 0.8s $customTimingFunction 0.2s;
-
-  @media (max-width: $tablet) and (orientation: portrait) {
-    transform: translateX(-100%);
-    opacity: 1;
-    transition: none;
-  }
-
-  @media (max-width: $mobile) and (orientation: landscape) {
-    transform: translateX(-100%);
-    opacity: 1;
-    transition: none;
-  }
-}
-
-.page-ready .page-header__nav {
   transform: none;
   opacity: 1;
+  transition: all 0.8s $customTimingFunction 0.2s;
+
+  .page-header--menu-opened & {
+    transform: translateX(0);
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     transform: translateX(-100%);
+    opacity: 1;
+    transition: none;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     transform: translateX(-100%);
+    opacity: 1;
+    transition: none;
   }
 }
 
