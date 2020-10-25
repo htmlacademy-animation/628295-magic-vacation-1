@@ -142,10 +142,6 @@
     padding: 4rem 3.5rem;
     color: $c-dark;
     background-color: $c-light;
-
-    .page-header--menu-opened & {
-      transform: translateX(0);
-    }
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
@@ -161,10 +157,6 @@
     color: $c-dark;
     background-color: $c-light;
     overflow-y: auto;
-
-    .page-header--menu-opened & {
-      transform: translateX(0);
-    }
   }
 }
 
