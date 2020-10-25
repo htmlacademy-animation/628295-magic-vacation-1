@@ -1793,9 +1793,7 @@ img {
       align-items: flex-start;
       padding: 4rem 3.5rem;
       color: #5f458c;
-      background-color: #ffffff; }
-      .page-header--menu-opened .page-header__nav {
-        transform: translateX(0); } }
+      background-color: #ffffff; } }
   @media (max-width: 768px) and (orientation: landscape) {
     .page-header__nav {
       position: fixed;
@@ -1809,9 +1807,7 @@ img {
       max-height: calc(var(--vh, 1vh) * 100);
       color: #5f458c;
       background-color: #ffffff;
-      overflow-y: auto; }
-      .page-header--menu-opened .page-header__nav {
-        transform: translateX(0); } }
+      overflow-y: auto; } }
 
 .page-header__menu {
   font-family: "Radical", "Arial", sans-serif;
@@ -3307,7 +3303,7 @@ img {
 
 .show-background .page-content > .background {
   opacity: 1;
-  animation: show__background ease-in 0.8s forwards;
+  animation: show__background ease-in 0.7s forwards;
   z-index: 2; }
 
 .active ~ .background {
@@ -3360,28 +3356,21 @@ img {
   opacity: 1; }
 
 .page-header__nav {
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.24, 0.51, 0.47, 0.94) 0.2s; }
-  @media (max-width: 1024px) and (orientation: portrait) {
-    .page-header__nav {
-      transform: translateX(-100%);
-      opacity: 1;
-      transition: none; } }
-  @media (max-width: 768px) and (orientation: landscape) {
-    .page-header__nav {
-      transform: translateX(-100%);
-      opacity: 1;
-      transition: none; } }
-
-.page-ready .page-header__nav {
   transform: none;
-  opacity: 1; }
+  opacity: 1;
+  transition: all 0.8s cubic-bezier(0.24, 0.51, 0.47, 0.94) 0.2s; }
+  .page-header--menu-opened .page-header__nav {
+    transform: translateX(0); }
   @media (max-width: 1024px) and (orientation: portrait) {
-    .page-ready .page-header__nav {
-      transform: translateX(-100%); } }
+    .page-header__nav {
+      transform: translateX(-100%);
+      opacity: 1;
+      transition: none; } }
   @media (max-width: 768px) and (orientation: landscape) {
-    .page-ready .page-header__nav {
-      transform: translateX(-100%); } }
+    .page-header__nav {
+      transform: translateX(-100%);
+      opacity: 1;
+      transition: none; } }
 
 .page-header__menu a::after {
   transition: width 0.4s ease; }
