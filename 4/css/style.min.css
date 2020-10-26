@@ -3414,33 +3414,35 @@ img {
   animation: show__rule__text 0.2s 0.2s ease-in both; }
 
 .rules__list li:nth-child(1)::before {
-  animation-delay: calc(0 * 0.4s); }
+  animation-delay: calc((1 - 1) * 0.4s); }
 
 .rules__list li:nth-child(1) p {
-  animation-delay: calc(0 * 0.4s + 0.2s); }
+  animation-delay: calc((1 - 1) * 0.4s + 0.2s); }
 
 .rules__list li:nth-child(2)::before {
-  animation-delay: calc(1 * 0.4s); }
+  animation-delay: calc((2 - 1) * 0.4s); }
 
 .rules__list li:nth-child(2) p {
-  animation-delay: calc(1 * 0.4s + 0.2s); }
+  animation-delay: calc((2 - 1) * 0.4s + 0.2s); }
 
 .rules__list li:nth-child(3)::before {
-  animation-delay: calc(2 * 0.4s); }
+  animation-delay: calc((3 - 1) * 0.4s); }
 
 .rules__list li:nth-child(3) p {
-  animation-delay: calc(2 * 0.4s + 0.2s); }
+  animation-delay: calc((3 - 1) * 0.4s + 0.2s); }
 
 .rules__list li:nth-child(4)::before {
-  animation-delay: calc(3 * 0.4s); }
+  animation-delay: calc((4 - 1) * 0.4s); }
 
 .rules__list li:nth-child(4) p {
-  animation-delay: calc(3 * 0.4s + 0.2s); }
+  animation-delay: calc((4 - 1) * 0.4s + 0.2s); }
 
 .rules__link {
   display: block;
-  opacity: 0;
-  animation: show__rules__link 0.4s calc(4 * 0.4s) linear forwards; }
+  opacity: 0; }
+
+.rules__link--animation {
+  animation: show__rules__link 0.4s linear forwards; }
 
 .rules__link-wrapper {
   border-radius: 3.5rem;
