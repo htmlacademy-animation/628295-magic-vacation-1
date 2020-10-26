@@ -58,11 +58,11 @@
   @for $i from 1 through 4 {
     li:nth-child(#{$i}) {
       &::before {// отсчет начинается с 1, а нам нужно запускать анимацию без начального delay
-        animation-delay: calc(#{$i - 1} * 0.4s);
+        animation-delay: calc((#{$i} - 1) * 0.4s);
       }
 
       p {
-        animation-delay: calc(#{$i - 1} * 0.4s + 0.2s);
+        animation-delay: calc((#{$i} - 1) * 0.4s + 0.2s);
       }
     }
   }
@@ -71,7 +71,10 @@
 .rules__link {
   display: block;
   opacity: 0;
-  animation: show__rules__link 0.4s calc(4 * 0.4s) linear forwards;
+}
+
+.rules__link--animation {
+  animation: show__rules__link 0.4s linear forwards;
 }
 
 .rules__link-wrapper {
