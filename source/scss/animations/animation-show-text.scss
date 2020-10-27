@@ -1,0 +1,21 @@
+.animation-show-text__word {
+  display: flex;
+  height: 0.906em;
+  margin-right: 0.2em;
+  overflow-y: hidden;
+}
+
+@keyframes show__charter {
+  from {
+    transform: translate3d(0, 1em, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animation-show-text__word > span {
+  display: block;
+  animation: show__charter 0.45s linear both;
+}
